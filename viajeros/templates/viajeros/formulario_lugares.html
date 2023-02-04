@@ -1,0 +1,22 @@
+{% extends "viajeros/base.html" %}
+
+{% block subtitulo %}Argentina{% endblock subtitulo %}
+
+{% block contenido %}
+{% for lugar in lugares %}
+  <h1>{{ lugar.provincia }}</h1>
+  <br>
+  <h4>{{ lugar.ciudad }}</h4>
+  <br>
+  <img src="{{lugar.imagen.url }}" width="400" alt="" />
+  <br>
+    {% if lugar.provincia %}
+      <h1>No hay entradas aún</h1> 
+    {% endif %}
+  <br>
+  <a href="{% url 'ver_lugar' lugar.id %}">Ver mas</a>
+  <br>
+  <a href="{% url 'inicio' %}">Volver</a> 
+{% endfor %}
+
+{% endblock contenido %}

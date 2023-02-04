@@ -1,0 +1,47 @@
+{% extends "viajeros/base.html" %}
+
+{% block subtitulo %}Saludos{{user.name}}{% endblock subtitulo %}
+
+{% block contenido %}
+<h1>Que lugar queres conocer?</h1>
+<br>
+<form action="{% url 'buscar_lugar' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="busqueda">
+  <input type="submit" value="Buscar">
+</form>
+<br>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Provincia</th>
+      <th>Ciudad</th>
+      <td>Ver mas</td>
+      <td>Editar</td>
+      <td>Eliminar</td>
+    </tr>
+    {% for lugar in lugares %}
+    <tr>
+      <td>{{ lugar.provincia }}</td>
+      <td>{{ lugar.ciudad }}</td>
+      <td>
+        <a href="{% url 'ver_lugar' lugar.id %}">Ver mas</a>
+      </td>
+      <td>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'editar_lugar' lugar.id %}">Editar</a>
+      </td>
+      <td>
+        <form action="{% url 'eliminar_lugar' lugar.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="eliminar"/>
+        </form>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}

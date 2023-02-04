@@ -1,0 +1,24 @@
+{% extends "viajeros/base.html" %}
+
+{% block subtitulo %}Conozca Argentina{% endblock subtitulo %}
+
+{% block contenido %}
+<h4>Conozca Argentina!!</h4>
+{% for lugar in lugares %}
+  {% if lugar.provincia %}
+    <h4>{{lugar.provincia}}</h4>
+  <span>
+      <b>Ciudad:</b> {{lugar.ciudad}}
+    </span>
+    <br>
+    <span>
+      <b>Descripcion:</b> {{lugar.descripcion}}
+    </span>
+    <a href="{% url 'ver_lugar' lugar.id %}">Ver mas</a>
+  {% else %}
+      <li> Por el momento nuestra pagina no contiene informacion</li>
+  {% endif %}
+{% endfor %}
+<br><br>
+
+{% endblock contenido %}

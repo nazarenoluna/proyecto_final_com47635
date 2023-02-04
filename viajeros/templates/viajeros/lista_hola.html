@@ -1,0 +1,23 @@
+{% extends "viajeros/base.html" %}
+
+{% block subtitulo %}Mi blog{% endblock subtitulo %}
+
+
+
+{% block contenido %}
+
+{% for about in aboutme %}
+  <tbody>
+    <h2>{{about.titulo}}</h2>
+    <span>
+     <h7>En Jujuy, Purmamarca</h7>
+    </span>
+    <br>
+    <span>
+      <img src="{{about.imagen.url }}" width="200" alt="" />
+      <b>{{about.mi_blog}}</b> 
+    </span>
+  </tbody>    
+{% endfor %}
+ 
+{% endblock contenido %}

@@ -1,0 +1,13 @@
+{% extends "viajeros/base.html" %}
+
+{% block subtitulo %}Inicio seción{% endblock subtitulo %}
+
+{% block contenido %}
+<body>
+  <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Iniciar Seción</button>
+  </form>
+</body>
+{% endblock contenido %}

@@ -1,0 +1,15 @@
+{% extends "viajeros/base.html" %}
+
+{% block subtitulo %}Editar lugar{% endblock subtitulo %}
+
+{% block contenido %}
+<form method="post">
+  {% csrf_token %}
+  {{ formulario.as_p }}
+  <input type="submit" value="Enviar" />
+</form>
+
+<br>
+<a href="{% url 'listar_lugares' %}">Volver lista</a>
+
+{% endblock contenido %}
