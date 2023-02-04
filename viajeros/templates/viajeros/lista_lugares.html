@@ -1,26 +1,23 @@
 {% extends "viajeros/base.html" %}
 
-{% block subtitulo %}Bienvenidos{% endblock subtitulo %}
+{% block subtitulo %}Del Norte al Sur{% endblock subtitulo %}
 
 {% block contenido %}
 {% for lugar in lugares %}
-  {% if lugar.provincia %}
-    <h4>{{lugar.provincia}}</h4>
-    <span> 
-    <b>Ciudad:</b> {{lugar.ciudad}}
-    <br>
-    {% if lugar.imagen %}
+  <h4>{{lugar.provincia}}</h4>
+  <span> 
+  <b>Ciudad:</b> {{lugar.ciudad}}
+  <br>
+  {% if lugar.imagen %}
       <img src="{{lugar.imagen.url }}" width="400" alt="" />
-    {% endif %}
-    <br>
-    </span>
-  {% else %}
-  <h1>Nuestra pagina aun no contiene informacion</h1>
-  <a href="{% url 'inicio' %}">Volver a inicio</a>
-  {% endif %}     
+  {% endif %}  
   <br>
   <a href="{% url 'ver_lugar' lugar.id %}">Ver mas</a>
-  <br>
+  <br>>
+  </span>
+  {% empty %}
+  <h1>Nuestra pagina aun no contiene informacion</h1>
+  <a href="{% url 'inicio' %}">Volver a inicio</a>    
 {% endfor %}
 
 {% endblock contenido %}

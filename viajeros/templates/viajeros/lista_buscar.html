@@ -1,7 +1,7 @@
 {% extends "viajeros/base.html" %}
 
-{% block subtitulo %}Saludos{{user.name}}{% endblock subtitulo %}
-
+{% block subtitulo %}Un pais Hermoso{{user.name}}{% endblock subtitulo %}
+s
 {% block contenido %}
 <h1>Que lugar queres conocer?</h1>
 <br>
@@ -29,7 +29,7 @@
         <a href="{% url 'ver_lugar' lugar.id %}">Ver mas</a>
       </td>
       <td>
-        {% if request.user.is_authenticated %}
+        {% if request.user.username %}
         <a href="{% url 'editar_lugar' lugar.id %}">Editar</a>
       </td>
       <td>

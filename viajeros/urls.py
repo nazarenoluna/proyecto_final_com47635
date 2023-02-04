@@ -24,4 +24,5 @@ urlpatterns = [
     path('editar-perfil/', ProfileUpdateView.as_view(), name="editar_perfil"),
     path('agregar-avatar/', agregar_avatar, name="agregar_avatar"),
     path('inicio_login/', inicio_login, name="inicio_login"),
+    
 ]

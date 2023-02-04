@@ -84,7 +84,7 @@ def editar_lugar(request, id):
     lugar = Lugares.objects.get(id=id)
     if request.method == "POST":
         formulario = VerLugarFormulario(request.POST)
-
+        
         if formulario.is_valid():
             data = formulario.cleaned_data
             lugar.provincia = data['provincia']
