@@ -3,7 +3,7 @@ from django.urls import path
 from viajeros.views import (
     inicio, listar_lugares, crear_lugar, listar_about_me, editar_lugar, buscar_lugar,
     eliminar_lugar, listar_busquedas, ver_lugar, registro, login_view, CustomLogoutView,
-    ProfileUpdateView, agregar_avatar, inicio_login
+    ProfileUpdateView, agregar_avatar, inicio_login,  
 )
 
 
@@ -18,11 +18,10 @@ urlpatterns = [
     path('listar_busquedas/',listar_busquedas, name="listar_busquedas"),
     path('ver_lugar/<int:id>/',ver_lugar, name="ver_lugar"),
     #URLS Usuario y sesion
-    path('registro/',registro, name="registro"),
-    path('login/',login_view, name="login"),
-    path('logout/',CustomLogoutView.as_view(), name="logout"),
-    path('editar-perfil/', ProfileUpdateView.as_view(), name="editar_perfil"),
-    path('agregar-avatar/', agregar_avatar, name="agregar_avatar"),
-    path('inicio_login/', inicio_login, name="inicio_login"),
-    
+    path('account/registro/',registro, name="registro"),
+    path('account/login/',login_view, name="login"),
+    path('account/logout/',CustomLogoutView.as_view(), name="logout"),
+    path('account/editar-perfil/', ProfileUpdateView.as_view(), name="editar_perfil"),
+    path('account/agregar-avatar/', agregar_avatar, name="agregar_avatar"),
+    path('account/inicio_login/', inicio_login, name="inicio_login"),
 ]
